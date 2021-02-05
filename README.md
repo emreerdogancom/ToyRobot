@@ -6,10 +6,15 @@ The robot is free to roam around the surface of the table, but must be prevented
 Create an application that can read in commands of the following form:
 
 PLACE X,Y, FACING
-MOVE\n
-LEFT\n
-RIGHT\n
-REPORT\n
+
+MOVE
+
+LEFT
+
+RIGHT
+
+REPORT
+
 PLACE will put the toy robot on the table in position X,Y and facing NORTH, SOUTH, EAST or WEST.
 
 The origin (0,0) can be considered to be the SOUTH WEST most corner.
@@ -31,24 +36,38 @@ Please complete the exercise in Ruby, using practices which represent the qualit
 
 If you don't know Ruby, then Java, Smalltalk or another O-O language is acceptable. If want to show us an implementation in your personal favourite language (eg functional) then please include that for bonus marks, but we'll need to ALSO see a solution in an O-O language to proceed to tech interview.
 
-# Example Input and Output
+# Example Input and Output 1
 
 PLACE 0,0,NORTH
+
 MOVE
+
 REPORT
+
 Output: 0,1,NORTH
 
 
+# Example Input and Output 2
 PLACE 0,0,NORTH
+
 LEFT
+
 REPORT
+
 Output: 0,0,WEST
 
 
+# Example Input and Output 3
 PLACE 1,2,EAST
+
 MOVE
+
 MOVE
+
 LEFT
+
 MOVE
+
 REPORT
+
 Output: 3,3,NORTH
