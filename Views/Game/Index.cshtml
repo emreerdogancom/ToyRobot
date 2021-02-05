@@ -1,0 +1,60 @@
+﻿@model ToyRobot.Core.Concrete.Board.Board
+@{
+    ViewData["Title"] = "Game Page";
+}
+
+
+<div class="row justify-content-center pt-5">
+    <div class="col-6">
+        <table class="table tab table-bordered" id="tableToyRobot">
+            <tbody>
+                @for (int i = Model.Height - 1; i >= 0; i--)
+                {
+                    <tr id="y@(i)">
+                        @for (int j = 0; j < Model.Width; j++)
+                        {
+                            <td id="yx@(i)@(j)" title="X : @j, Y : @i">.</td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-4">
+        <div class="form-group">
+            <textarea placeholder="Your Input" class="form-control" id="txtInput" rows="10"></textarea>
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-primary btn-block" onclick="movement.execute('txtInput', 'txtOutput');">Execute</button>
+        </div>
+        <div class="form-group">
+            <textarea placeholder="Output" class="form-control" id="txtOutput" rows="7" disabled></textarea>
+        </div>
+    </div>
+    <div class="col-2">
+
+        <h4 class="card-title mb-0 h6">Sample Commands</h4>
+
+        <div class="sampleCommand cur" onclick="copySampleToInput('txtInput', this);">
+            PLACE 0,0,NORTH
+            MOVE
+            REPORT
+        </div>
+
+        <div class="sampleCommand" onclick="copySampleToInput('txtInput', this);">
+            PLACE 0,0,NORTH
+            LEFT
+            REPORT
+        </div>
+
+        <div class="sampleCommand" onclick="copySampleToInput('txtInput', this);">
+            PLACE 1,2,EAST
+            MOVE
+            MOVE
+            LEFT
+            MOVE
+            REPORT
+        </div>
+
+    </div>
+</div>
