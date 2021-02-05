@@ -6,10 +6,10 @@ The robot is free to roam around the surface of the table, but must be prevented
 Create an application that can read in commands of the following form:
 
 PLACE X,Y, FACING
-MOVE
-LEFT
-RIGHT
-REPORT
+MOVE\n
+LEFT\n
+RIGHT\n
+REPORT\n
 PLACE will put the toy robot on the table in position X,Y and facing NORTH, SOUTH, EAST or WEST.
 
 The origin (0,0) can be considered to be the SOUTH WEST most corner.
