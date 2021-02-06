@@ -16,7 +16,6 @@ namespace ToyRobot.Core.Concrete.Robot.Base
         public RobotPosition Position { get; set; } = null;
 
 
-
         /// <summary>
         /// Put the robot to board (Base Validation)
         /// </summary>
@@ -46,6 +45,7 @@ namespace ToyRobot.Core.Concrete.Robot.Base
         /// <param name="input"></param>
         /// <returns></returns>
         public abstract bool PlaceParser(string input);
+
 
         /// <summary>
         /// Execute external command classes. It should inherited from IMovementCommand (Base Validation)

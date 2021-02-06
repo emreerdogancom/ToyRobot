@@ -59,7 +59,7 @@ movement = {
             dir = "right";
 
 
-        $("#yx" + step.y + step.x).html("<i id='Pointer' class='bi bi-arrow-" + dir + "-square-fill'></i>");
+        $("#yx" + step.y + step.x).html("<i id='Pointer' class='bi bi-arrow-" + dir + "-square-fill fs20'></i>");
 
 
         /* Output */

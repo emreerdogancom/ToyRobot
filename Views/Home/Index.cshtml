@@ -3,86 +3,82 @@
 }
 
 
-    <div class="row pt-5">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title h6 mb-0">Let's play some game :)</h4>
-                </div>
-                <div class="card-body">
-                   
-                        <section>
-                            <h4>Description</h4>
-                            <p>
-                                The application is a simulation of a toy robot moving on a square tabletop, of dimensions 5 units x 5 units.
-                                There are no other obstructions on the table surface.
-                            </p>
-                            <p>The robot is free to roam around the surface of the table, but must be prevented from falling to destruction. Any movement that would result in the robot falling from the table must be prevented, however further valid movement commands must still be allowed.</p>
-                            <p>Create an application that can read in commands of the following form:</p>
-                            <ul>
-                                <li>PLACE X,Y, FACING</li>
-                                <li>MOVE</li>
-                                <li>LEFT</li>
-                                <li>RIGHT</li>
-                                <li>REPORT</li>
-                            </ul>
-                            <p><strong>PLACE</strong> will put the toy robot on the table in position X,Y and facing NORTH, SOUTH, EAST or WEST.</p>
-                            <p>The origin (0,0) can be considered to be the SOUTH WEST most corner.</p>
-                            <p>The first valid command to the robot is a PLACE command, after that, any sequence of commands may be issued, in any order, including another PLACE command. The application should discard all commands in the sequence until a valid PLACE command has been executed.</p>
-                            <p>
-                                <strong>MOVE</strong> will move the toy robot one unit forward in the direction it is currently facing.
-                                LEFT and RIGHT will rotate the robot 90 degrees in the specified direction without changing the position of the robot.
-                            </p>
-                            <p><strong>REPORT</strong> will announce the X,Y and FACING of the robot. This can be in any form, but standard output is sufficient.</p>
-                            <p>A robot that is not on the table can choose the ignore the MOVE, LEFT, RIGHT and REPORT commands.</p>
-                            <p>Input can be from <em>a file</em>, or from standard input, as the developer chooses.</p>
-                            <p><strong>Provide test data to exercise the application.</strong></p>
-                            <h4>Delivery</h4>
-                            <p>Please complete the exercise in <strong>Ruby</strong>, using practices which represent the quality of code you are proud of.</p>
-                            <p>
-                                If you don't know Ruby, then Java, Smalltalk or <em>another O-O language is acceptable</em>.
-                                If want to show us an implementation in your personal favourite language (eg functional)
-                                then please include that for bonus marks,
-                                but we'll need to ALSO see a solution in an O-O language to proceed to tech interview.
-                            </p>
-                            <h4>Example Input and Output</h4>
-                            <div class="sampleCommand">
-                                <code>
-                                    PLACE 0,0,NORTH
-                                    MOVE
-                                    REPORT
-                                </code>
-                                <div>Output: 0,1,NORTH</div>
-                            </div>
-                            
+<div class="row pt-5">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title h6 mb-0">Let's play some game :)</h4>
+            </div>
+            <div class="card-body">
 
+                <section>
+                    <h4>Description</h4>
+                    <p>
+                        The application is a simulation of a toy robot moving on a square tabletop, of dimensions 5 units x 5 units.
+                        There are no other obstructions on the table surface.
+                    </p>
+                    <p>The robot is free to roam around the surface of the table, but must be prevented from falling to destruction. Any movement that would result in the robot falling from the table must be prevented, however further valid movement commands must still be allowed.</p>
+                    <p>Create an application that can read in commands of the following form:</p>
+                    <ul>
+                        <li>PLACE X,Y, FACING</li>
+                        <li>MOVE</li>
+                        <li>LEFT</li>
+                        <li>RIGHT</li>
+                        <li>REPORT</li>
+                    </ul>
+                    <p><strong>PLACE</strong> will put the toy robot on the table in position X,Y and facing NORTH, SOUTH, EAST or WEST.</p>
+                    <p>The origin (0,0) can be considered to be the SOUTH WEST most corner.</p>
+                    <p>The first valid command to the robot is a PLACE command, after that, any sequence of commands may be issued, in any order, including another PLACE command. The application should discard all commands in the sequence until a valid PLACE command has been executed.</p>
+                    <p>
+                        <strong>MOVE</strong> will move the toy robot one unit forward in the direction it is currently facing.
+                        LEFT and RIGHT will rotate the robot 90 degrees in the specified direction without changing the position of the robot.
+                    </p>
+                    <p><strong>REPORT</strong> will announce the X,Y and FACING of the robot. This can be in any form, but standard output is sufficient.</p>
+                    <p>A robot that is not on the table can choose the ignore the MOVE, LEFT, RIGHT and REPORT commands.</p>
+                    <p>Input can be from <em>a file</em>, or from standard input, as the developer chooses.</p>
+                    <p><strong>Provide test data to exercise the application.</strong></p>
+                    <h4>Delivery</h4>
+                    <p>Please complete the exercise in <strong>Ruby</strong>, using practices which represent the quality of code you are proud of.</p>
+                    <p>
+                        If you don't know Ruby, then Java, Smalltalk or <em>another O-O language is acceptable</em>.
+                        If want to show us an implementation in your personal favourite language (eg functional)
+                        then please include that for bonus marks,
+                        but we'll need to ALSO see a solution in an O-O language to proceed to tech interview.
+                    </p>
+                    <h4>Example Input and Output</h4>
+                    <div class="sampleCommand">
+                        <code>
+                            PLACE 0,0,NORTH
+                            MOVE
+                            REPORT
+                        </code>
+                        <span>Output: 0,1,NORTH</span>
+                    </div>
 
-                            <div class="sampleCommand">
-                                <code>
-                                    PLACE 0,0,NORTH
-                                    LEFT
-                                    REPORT
-                                </code>
-                            </div>
-                            <p>Output: 0,0,WEST</p>
+                    <div class="sampleCommand">
+                        <code>
+                            PLACE 0,0,NORTH
+                            LEFT
+                            REPORT
+                        </code>
+                        <span>Output: 0,0,WEST</span>
+                    </div>
 
+                    <div class="sampleCommand">
+                        <code>
+                            PLACE 1,2,EAST
+                            MOVE
+                            MOVE
+                            LEFT
+                            MOVE
+                            REPORT
+                        </code>
+                        <span>Output: 3,3,NORTH</span>
+                    </div>
 
-                            <div class="sampleCommand">
-                                <code>
-                                PLACE 1,2,EAST
-                                MOVE
-                                MOVE
-                                LEFT
-                                MOVE
-                                REPORT
-                                </code>
-                            </div>
-                            <p>Output: 3,3,NORTH</p>
+                </section>
 
-                        </section>
-
-                    
-                </div>
             </div>
         </div>
     </div>
+</div>

@@ -109,11 +109,22 @@ textarea {
     font-size: 14pt;
 }
 
-.sampleCommand {
-    white-space:pre-line;
-    cursor:pointer;
+.fs16 {
+    font-size: 16pt;
 }
 
-.sampleCommand:hover {
-    color:#5ea43d
+.fs20 {
+    font-size: 20pt;
 }
+
+.sampleCommand {
+    white-space:pre-line;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+    .sampleCommand:hover {
+        color: #5ea43d
+    }
