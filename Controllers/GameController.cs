@@ -9,10 +9,12 @@ namespace ToyRobot.Controllers
     public class GameController : Controller
     {
         private readonly IBoard Board;
+        private readonly RobotGame Game;
 
         public GameController()
         {
             Board = new Board(5, 5);
+            Game = new RobotGame(Board);
         }
 
         public IActionResult Index()
@@ -25,7 +27,6 @@ namespace ToyRobot.Controllers
 
         public RobotResultModel Start([FromHeader] string input)
         {
-            RobotGame Game = new RobotGame(Board);
             return Game.Start(input);
         }
     }
