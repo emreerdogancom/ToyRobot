@@ -19,19 +19,19 @@ namespace ToyRobot.Core.Abstract.Robot
         RobotPosition Position { get; set; }
 
         /// <summary>
-        /// Put the robot to board
+        /// Put the robot to board (Don't need to set public anymore)
         /// </summary>
         /// <param name="X"></param>
         /// <param name="Y"></param>
         /// <param name="direction"></param>
-        bool Place(int x, int y, RobotDirection direction);
+        //bool Place(int x, int y, RobotDirection direction);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        bool Place(string input);
+        bool PlaceParser(string input);
 
         /// <summary>
         /// Execute command for movement

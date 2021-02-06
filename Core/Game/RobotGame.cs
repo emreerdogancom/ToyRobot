@@ -48,7 +48,7 @@ namespace ToyRobot.Core.Game
 
                 /* Set Place */
                 if (CommandType == RobotCommand.Place)
-                    Robot.Place(item);
+                    Robot.PlaceParser(item);
 
                 /* Turn Left */
                 if (CommandType == RobotCommand.Left)

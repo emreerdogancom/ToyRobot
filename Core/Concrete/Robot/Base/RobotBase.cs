@@ -1,8 +1,7 @@
-﻿using System;
-using ToyRobot.Core.Abstract.Board;
+﻿using ToyRobot.Core.Abstract.Board;
 using ToyRobot.Core.Abstract.Command;
-using ToyRobot.Core.Enum;
 using ToyRobot.Core.Abstract.Robot;
+using ToyRobot.Core.Enum;
 
 namespace ToyRobot.Core.Concrete.Robot.Base
 {
@@ -19,19 +18,18 @@ namespace ToyRobot.Core.Concrete.Robot.Base
 
 
         /// <summary>
-        /// Put the robot to board
+        /// Put the robot to board (Base Validation)
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <param name="direction"></param>
-        public bool Place(int x, int y, RobotDirection direction)
+        protected bool Place(int x, int y, RobotDirection direction)
         {
             if (Board == null)
                 return false;
 
             if (x < 0 || y < 0)
                 return false;
-
 
             if (!Board.IsValidPosition(x, y))
                 return false;
@@ -47,36 +45,10 @@ namespace ToyRobot.Core.Concrete.Robot.Base
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public bool Place(string input)
-        {
-            String[] Params = input?.Split(new string[] { " ", "," }, StringSplitOptions.None);
-
-            if (Helpers.Validation.IsEnumerable<RobotCommand>(Params[0]) == null)
-                return false;
-
-            if (Helpers.Validation.IsEnumerable<RobotCommand>(Params[0]) != RobotCommand.Place)
-                return false;
-
-            if (Helpers.Validation.IsNumeric(Params[1]) == null)
-                return false;
-            
-            if (Helpers.Validation.IsNumeric(Params[2]) == null)
-                return false;
-
-            if (Helpers.Validation.IsEnumerable<RobotDirection>(Params[3]) == null)
-                return false;
-
-            Place(
-                    Convert.ToInt32(Params[1]), 
-                    Convert.ToInt32(Params[2]),
-                    (RobotDirection)Helpers.Validation.IsEnumerable<RobotDirection>(Params[3])
-                 );
-
-            return true;
-        }
+        public abstract bool PlaceParser(string input);
 
         /// <summary>
-        /// Execute external command classes. It should inherited from IMovementCommand
+        /// Execute external command classes. It should inherited from IMovementCommand (Base Validation)
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
