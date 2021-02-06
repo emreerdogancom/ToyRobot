@@ -33,17 +33,17 @@ namespace ToyRobot.Core.Concrete.Commands.Movement
             /* Go for Ordinat */
             if (Robot.Position.CurrentDirection == RobotDirection.North) Y += 1;
             if (Robot.Position.CurrentDirection == RobotDirection.South) Y -= 1;
-            
+
 
             /* 
              * Only if next position is available 
              */
-            if (Robot.Board.IsValidPosition(X, Y))
-            {
-                Robot.Position.CurrentX = X;
-                Robot.Position.CurrentY = Y;
-            }
+            if (!Robot.Board.IsValidPosition(X, Y))
+                return false;
 
+            /* Everything looks good. Set new position */
+            Robot.Position.CurrentX = X;
+            Robot.Position.CurrentY = Y;
 
             return true;
         }

@@ -1,4 +1,5 @@
-﻿using ToyRobot.Core.Abstract.Board;
+﻿using System;
+using ToyRobot.Core.Abstract.Board;
 using ToyRobot.Core.Abstract.Robot;
 using ToyRobot.Core.Concrete.Commands.Movement;
 using ToyRobot.Core.Concrete.Robot;
@@ -23,48 +24,85 @@ namespace ToyRobot.Core.Game
                 return null;
 
 
-            /* Command List */
+            /* !!!
+             * Need a new class for ForEach
+             * Param string[] commands
+             * Return Value RobotResultModel
+             */
             foreach (string item in commands)
             {
                 if (string.IsNullOrEmpty(item))
                     continue;
 
-                string command = "";
 
-                if (item.Length == 4)
-                    command = item;
+                string command = item;
 
-                if (item.Length > 4)
+                /* Only specific comamnd (PLACE) */
+                if (
+                    item.Length > 4 &&
+                    string.Equals(item.Substring(0, 5), RobotCommand.Place.ToString(), StringComparison.OrdinalIgnoreCase)
+                    )
                     command = item.Substring(0, 5);
 
 
+                /* 
+                 * Func checks each command if it is available, If needs a new command, just add new command to enum class 
+                 */
                 RobotCommand CommandType;
                 if (Helpers.Validation.IsEnumerable<RobotCommand>(command) == null)
-                {
                     continue;
-                }
+                
 
+                /* Set valid command type to variable */
                 CommandType = (RobotCommand)Helpers.Validation.IsEnumerable<RobotCommand>(command);
 
-                /* Set Place */
+
+                /* If command is "PLACE" */
                 if (CommandType == RobotCommand.Place)
-                    Robot.PlaceParser(item);
+                {
+                    var _ = Robot.PlaceParser(item);
+                    if (!_)
+                        return null;
+                }
 
-                /* Turn Left */
+
+                /* If command is "LEFT" */
                 if (CommandType == RobotCommand.Left)
-                    Robot.ExecuteMovementCommand(new TurnLeftMovementCommand());
+                {
+                    var _ = Robot.ExecuteMovementCommand(new TurnLeftMovementCommand());
+                    if (!_)
+                    {
+                        /* Custom Exception Management (ExecuteMovementCommand) */
+                    }
+                }
 
-                /* Turn Right */
+
+                /* If command is "RIGHT" */
                 if (CommandType == RobotCommand.Right)
-                    Robot.ExecuteMovementCommand(new TurnRightMovementCommand());
+                {
+                    var _ = Robot.ExecuteMovementCommand(new TurnRightMovementCommand());
+                    if (!_)
+                    {
+                        /* Custom Exception Management (ExecuteMovementCommand) */
+                    }
+                }
 
-                /* Move Forward */
+
+                /* If command is "MOVE" */
                 if (CommandType == RobotCommand.Move)
-                    Robot.ExecuteMovementCommand(new ForwardMovementCommand());
+                {
+                    var _ = Robot.ExecuteMovementCommand(new ForwardMovementCommand());
+                    if (!_)
+                    {
+                        /* Custom Exception Management (ExecuteMovementCommand) */
+                    }
+                }
+                    
 
                 /* Yell */
                 if (CommandType == RobotCommand.Report)
                 {
+                    string s = "";
                     /* 
                     * !!!
                     * Robot always Reports 
