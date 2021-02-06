@@ -102,10 +102,9 @@ namespace ToyRobot.Core.Game
                 /* Yell */
                 if (CommandType == RobotCommand.Report)
                 {
-                    string s = "";
                     /* 
                     * !!!
-                    * Robot always Reports 
+                    * Robot always yell now 
                     */
                 }
             }
